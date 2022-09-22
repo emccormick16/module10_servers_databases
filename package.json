@@ -1,0 +1,27 @@
+{
+  "name": "module10_servers_databases",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "nodemon js.js",
+    "seed:dev": "nodemon seed.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emccormick16/module10_servers_databases.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emccormick16/module10_servers_databases/issues"
+  },
+  "homepage": "https://github.com/emccormick16/module10_servers_databases#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.20",
+    "pg": "^8.8.0",
+    "sequelize": "^6.23.0"
+  }
+}
