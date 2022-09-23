@@ -1,15 +1,57 @@
-const {
-    Bookmark, Category
-} = require('./server.js')
+const { Bookmark, Category } = require("./server.js");
 
-const express = require("express")
-const app = express()
+const express = require("express");
+const app = express();
 
-app.get("./server.js", async (re, res, next) => {
-    const bookmarks = await Bookmark.findAll{
-        include: [
-            name,
-            
-        ]
-    }
-})
+app.get("/bookmark", (req, res, next) => {
+  res.send("hello world");
+});
+// app.get("/", async (req, res, next) => {
+//   res.redirect("/bookmark");
+// });
+
+// app.get("/bookmark", async (req, res, next) => {
+//   const bookmarks = await Bookmark.findAll({
+//     include: [Category],
+//   });
+//   res.send(`
+//   <body>
+//       ${bookmarks
+//         .map(
+//           (bookmark) => `
+//     <div>
+//       <h2><a href="${bookmark.url}">${bookmark.name}</a> - ${bookmark.category.name}</h2>
+//     </div>
+// `
+//         )
+//         .join("")}
+//   </body>
+// `);
+// });
+
+// app.get("/categories/:id", async (req, res, next) => {
+//   const bookmarks = await Bookmark.findAll({
+//     include: [Category],
+//   });
+//   let id = req.params.id;
+//   res.send(`
+//     <body>
+//     <h1>${id}</h1>
+//     ${bookmarks
+//       .filter((bookmark) => bookmark.category.name === id)
+//       .map(
+//         (bookmark) => `
+//   <div>
+//     <h2>${bookmark.name}</h2>
+//   </div>
+// `
+//       )
+//       .join("")}
+//       <h3><a href="/bookmark">Back</a></h3>
+// </body>`);
+// });
+
+const PORT = 1337;
+app.listen(PORT, () => {
+  console.log(`Connected to: https://localhost:${PORT}`);
+});

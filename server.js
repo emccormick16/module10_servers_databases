@@ -3,7 +3,7 @@ const Sequelize = require("sequelize");
 const DB_URL = process.env.DB_URL || "postgres://localhost:5432/bookmarker";
 const db = new Sequelize(DB_URL);
 
-const Bookmark = db.define("Bookmarks", {
+const Bookmark = db.define("bookmark", {
   name: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -17,15 +17,15 @@ const Bookmark = db.define("Bookmarks", {
   },
 });
 
-const Category = db.define("Categories", {
+const Category = db.define("category", {
   name: {
     type: Sequelize.STRING,
     allowNull: false,
   },
 });
 
-Bookmark.hasMany(Category);
-Category.belongsTo(Bookmark);
+Bookmark.belongsTo(Category);
+Category.hasMany(Bookmark);
 
 module.exports = {
   db,
